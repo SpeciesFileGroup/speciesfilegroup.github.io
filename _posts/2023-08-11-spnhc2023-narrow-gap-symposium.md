@@ -22,32 +22,32 @@ Once data gets shared with others (e.g. aggregators), data providers receive fee
 ## Knowledge Sharing - Knowledge Transfer - Knowledge Evolution (Expansion?)
 _a few key points or ideas from some of our speakers_
 
-Nicky Nicolson (KEW)
+Nicky Nicolson (KEW)  
 - suggests we consider tools like mastodon in curation pipelines, bringing more transparency and inclusion
 - notes the need to improve credit, that is, to professionalize technician roles, to have leadership value the skills technicians bring and for leadership to know what to look for
     - see the [techniciancommitment](https://www.techniciancommitment.org.uk/) for some ideas
 
-Ely Wallis (CSIRO) comments that machine observations and eDNA will soon surpass human observations and specimen records.
+Ely Wallis (CSIRO) comments that machine observations and eDNA will soon surpass human observations and specimen records.  
 - if we want richer data, much will depend on the capacity of the collection staff (and tools) necessary to make this possible.
 - she asks, what do collections want? better field collecting tools, for example
 
-Shelley James (Perth, Western Australia Herbaruim)
+Shelley James (Perth, Western Australia Herbaruim)  
 - where are the pinch points? (see graphic) 3 mos to 1 year to get duplicates
 - ? something fell down and no one noticed
 
-Sharif Islam (DiSSCo, Naturalis)
+Sharif Islam (DiSSCo, Naturalis)  
 - we have missing functionality in our CMS systems (see [Wikidata Knowledge Graph example](https://w.wiki/6hBD))
 - need data curation in an online domain (instead of a physical domain)
 - need curation and stewardship
 
-Vince Smith (NHM, London)
+Vince Smith (NHM, London)  
 - We want to realize meaningful data integration and access to these [richer] data. Yet, governments, universities, etc. find it difficult to align on a single mission given the many science-related challenges we're facing as a planet. So, Vince suggests a two-part strategy to approach alignment that would empower different visions and needs.
   - employing community curation (aka more _shared knowledge management_)
   - working to implment AI integration into our workflows
     - noting that the genealogy world that has done both of the above to great success
 - With a distributed connected open system like this we can all contribute and benefit, we can address local / global issues together in this way.
 
-Beckett Sterner (ASU)
+Beckett Sterner (ASU)  
 - How can we explain / understand / contextualize differential success across different collection management software platforms and communities?
 - How do vouchers incentivize (or not) data maintenance? What are factors that influence this? e. g.
   - no or little curation after publishing data
