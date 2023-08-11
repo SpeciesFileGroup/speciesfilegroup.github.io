@@ -2,7 +2,7 @@
 layout: post
 title: 'Gathering Our Narrowing-The-Gap Insights from SPNHC2023'
 author: Deborah Paul, Matt Yoder
-date: 
+date: 2023-08-11
 categories: announce
 ---
 _the view from our SPNHC 2023 Symposium_
