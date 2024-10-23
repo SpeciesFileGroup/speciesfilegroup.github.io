@@ -201,7 +201,7 @@ title: Events
       seconds || 0)
     );
   
-    return utcTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    return utcTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })
   }
 
   function getUTCDatesInLocal (dates) {
