@@ -4,30 +4,49 @@ title: Data
 ---
 <div class="container">
   <h1 class="mt-5">{{ page.title }}</h1>
-  <p class="lead"> World class data from SFG members and collaborators</p>
+  <p class="lead"> World class data from the SFG community</p>
 
   <div class="container">
-    <h2 class="mt-5">TaxonWorks data via APIs</h2>
-    <p class="lead">Access data curated in SFG's instances of TaxonWorks </p>
-    <ul>
-      <li><a href="http://sfg.taxonworks.org/api/v1">Data from sfg.taxonworks.org</a></li>
-      <li><a href="http://api.taxonworks.org">Using a TaxonWorks API</a></li>
-      <li><a href="http://stats.taxonworks.org/">stats.taxonwork.org</a> a meta app with a data overview</li>
-    </ul> 
-  </div>
-
-  <div class="container">
-    <h2 class="mt-5">Global Names</h2>
-    <p class="lead">Access data indexed by Global Names  </p>
+    <h2 class="mt-4">Global Names</h2>
+    <p class="lead">Access data indexed by Global Names </p>
     <ul>
       <li><a href="http://globalnames.org/apps/">GlobalNames APIs</a></li>
     </ul> 
   </div>
 
+  <div class="container">
+    <h2 class="mt-4">TaxonWorks data via APIs</h2>
+    <p class="lead">Access data curated in SFG's instances of TaxonWorks </p>
+    <p> Includes access to data for all public Species Files pages and other projects without public-facing websites.</p>
+    <ul>
+      <li><a href="http://api.taxonworks.org">Using a TaxonWorks API</a></li>
+      <li><a href="http://sfg.taxonworks.org/api/v1">Data from sfg.taxonworks.org</a></li>
+    </ul> 
+  </div>
+
+  <div class="container">
+    <h2 class="mt-4">TaxonWorks data in Species Files</h2>
+    <p class="lead">Species Files are SFG managed instances of TaxonPages</p>
+    <p> See the <em>Data Map</em> and <em>DwC</em> download links within these sites for underlying data.</p>
+    {% include species_files.html %}
+  </div>
+
+  <div class="container">
+    <h2 class="mt-4">TaxonWorks data via collaborating websites</h2>
+    <p class="lead">Please let us know about your site!</p>
+    <ul>
+      <li><a href="http://antweb.org">AntWeb</a></li>
+      <li><a href="http://ucd.chalcid.org">Universal Chalcidoidea Website</a></li>
+      <li><a href="http://http://wcolite.com/">The complete taxonomy of world harvestmen</a></li>
+      <li><a href="https://curculionidae.github.io/taxa/#/">Curculionidae of the World</a></li>
+      <li><a href="https://worldichneumonidae.com">World Ichneumonidae</a></li>
+    </ul> 
+  </div>
+
   <div class="container" id="catalogue-of-life">
-    <h2 class="mt-5">Catalogue of Life/GBIF Checklistbank</h2>
-    <p class="lead">Access data managed in TaxonWorks or SpeciesFiles that are used in the construction of the Catalogue of Life </p>
-    <p> See also <a href="/collaboration#catalogue-of-life">Collaboration</a>.</p>
+    <h2 class="mt-4">Catalogue of Life/GBIF Checklistbank</h2>
+    <p class="lead">Access data managed in TaxonWorks or Species Files that are used in the construction of the Catalogue of Life </p>
+    <p> See <a href="/collaboration#catalogue-of-life">Collaboration</a> for more on or work with Catalogue of Life.</p>
     <ul>
       <li><a href="https://www.checklistbank.org/dataset/2317/classification">3i Auchenorrhyncha</a></li>
       <li><a href="https://www.checklistbank.org/dataset/1166/classification">3i Curculio</a></li>
@@ -47,20 +66,10 @@ title: Data
       <li><a href="https://www.checklistbank.org/dataset/1050/classification">SF Phasmida</a></li>
       <li><a href="https://www.checklistbank.org/dataset/1133/classification">SF Psocodea</a></li>
       <li><a href="https://www.checklistbank.org/dataset/1167/classification">SF Zoraptera</a></li>
-      <li><a href="https://www.checklistbank.org/dataset/55434/classification">Global Lepidoptera Index</a></li>
       <li><a href="https://www.checklistbank.org/dataset/1204/classification">StaphBase</a></li>
       <li><a href="https://www.checklistbank.org/dataset/2256/classification">World Catalogue of Opiliones</a></li>
+      <li><a href="https://www.checklistbank.org/dataset/55434/classification">Global Lepidoptera Index</a></li>
+      <li><a href="https://www.checklistbank.org/dataset/55434/classification">UCD - Universal Chalcidoidea Database</a></li>
     </ul>
   </div>
-
-  <div class="container">
-    <div class="alert alert-warning" role="alert">
-      TODO: Summarize static resources that don't fit in these categories.
-      <ul>
-        <li>Species Files LSID resolver</li>
-        <li>Species Files Downloads</li>
-      </ul> 
-    </div>
-  </div>
-
 </div>
