@@ -4,12 +4,15 @@ title: Site map
 ---
 ## Hosted or managed websites
 
+** UNDER REFACTORING ** 
+
 ### Current
 
 #### This site
 * [About SFG](https://speciesfilegroup.org/about.html)
 * [Events](https://speciesfilegroup.org/events.html)
 * [SpeciesFileGroup.org](https://speciesfilegroup.org/)
+* [Checklist bank data](https://speciesfilegroup.org/data#catalogue-of-life)
 
 #### Global Names
 * [Global Names](http://globalnames.org)

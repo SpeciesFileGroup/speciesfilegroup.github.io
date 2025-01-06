@@ -4,7 +4,7 @@
     <p class="mb-0 text-muted">This site uses Google Analytics.</p>
 
     <ul class="nav align-items-center justify-content-center">
-      {% for item in site.data.top_nav.items %}
+      {% for item in site.data.footer_nav.items  %}
       {% if page.url == item.url %}{% assign current = true %}{% else %}{% assign current = false %}{% endif %}
       <li class="nav-item mx-auto">
         <a class="nav-link px-2 text-muted" href="{{ item.url }}">{{ item.name }}</a>
