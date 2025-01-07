@@ -16,7 +16,7 @@ gem "minima", "~> 2.5"
 # gem "github-pages", group: :jekyll_plugins
 
 gem 'jekyll', '~> 4.3'
-gem 'psych', '~> 4.0.2'
+gem 'psych', '~> 5.0'
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
@@ -34,4 +34,4 @@ end
 # Performance-booster for watching directories on Windows
 gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 
-gem "webrick", "~> 1.8"
+gem "webrick", "~> 1.9"
