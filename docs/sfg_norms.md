@@ -13,9 +13,10 @@ This is not a legal document. It is a living and evolving set of ideas that we h
 _In koan spirit_ 
 
 * All data publishers should get the credit they deserve when the data they curate are used by others.
-* Administrators of scientific effort should value the re-use of data maintained from their organization as they do a contribution to the primary literature.
-* _Giving_ credit is both an ethical process that must be taught and learned and a canonical way to provide provenance within the scientific method.
+* When administrators of scientific effort value re-use of data maintained from their organization as they value contribution to the primary literature, then benefits emerge.
+* _Giving_ credit, a social construct, is both an ethical process that must be taught and learned and a canonical way to provide provenance within the scientific method.
 * _Enforcing_ credit-giving is evidence of a systemic failure.
+* _Facilitating_ credit-giving should permeate our scientific processes.
 * Expertise, experts, and the hard work that they emerged from are worth celebrating.
 * The concepts of repeatability, iteration, and hypothesis testing within the scientific method benefit greatly when the underlying software and practices are open-source. Some closed software and processes are not scientific because they negate the possibility of these processes.
 * Problems with data represent opportunities for improvement. Openly sharing data is a good way to discover these opportunities. 
@@ -26,11 +27,11 @@ _In koan spirit_
 * Data standards are a basis for shared understanding.
 * Well standardized data is an act of sharing understanding. 
 * The acts of standardizing data without understanding does not create standardized data.
-* Publishing in (e.g. widely used languages) is a form of standardization.
+* Publishing in a human language is a form of standardization.
 * Scientific publications, by definition, contain novelty, as such they frequently address that which has no standard.
 * All standards have limits, because of the vastness of biodiversity there are no universal standards, at best we have useful ones.
 * Standardized licences for data are useful for standardized data for all the reasons standards for data are useful.
-* [Creative Commons Zero (CC0)](https://creativecommons.org) is a particularly useful license as it is the least limiting, and therefor pre-adapts data for re-use, synthesis, improvement, and integration into broader biological concepts.
+* [Creative Commons Zero (CC0)](https://creativecommons.org) is a particularly useful license as it is the least limiting, and therefore pre-adapts data for re-use, synthesis, improvement, and integration into broader biological concepts.
 * Making data easy to use but hard to understand is not as beneficial as making data easy to understand but hard to use.
 * Life on earth is full of compartments, variously hidden from one another, it seems reasonable to expect data to follow similar patterns.
 * Completely compartmentalized life fails to become life relatively quickly, and fails to sustain other life, perhaps the same can be said for data, though generalizations (e.g. "silos" vs "free without limits") have little koan flavour.
@@ -43,7 +44,7 @@ _In koan spirit_
 
 ## Acknowledgements
 
-Deborah Paul wrote a first draft. Matt Yoder refactored that to the current version.
+Deborah Paul wrote a first draft. Matt Yoder refactored that. SFG has collectively improved it since then.
 
 There are many communities providing documents like this, here are some that inspired this effort and that we drew from, from scientific realms and beyond:
 
