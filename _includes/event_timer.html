@@ -1,0 +1,237 @@
+<script>
+  const days = [
+    'sunday', 
+    'monday', 
+    'tuesday', 
+    'wednesday', 
+    'thursday', 
+    'friday', 
+    'saturday'
+  ]
+
+  function ajustUTCStringToDST(utcString) {
+    const date = new Date();
+    const [hours, minutes, seconds] = utcString.split(':');
+
+    return [
+      isDST(date) 
+        ? String(Number(hours) - 1)
+        : hours
+      ,
+      minutes,
+      seconds
+    ]
+  }
+
+  function convertUTCToLocal ([hours, minutes, seconds]) {
+    const date = new Date();
+    const utcTime = new Date(
+      Date.UTC(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(),
+      hours,
+      minutes || 0,
+      seconds || 0)
+    );
+  
+    return utcTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })
+  }
+
+  function isDST(currentDate) {
+    const dstBegins = new Date(getNextDateFromDayAndWeek(0, 1, new Date(currentDate.getFullYear(), 2, 1)))
+    const dstEnds = new Date(getNextDateFromDayAndWeek(0, 0, new Date(currentDate.getFullYear(), 10, 1)))
+
+    return dstBegins <= currentDate && dstEnds >= currentDate
+  }
+
+  function getUTCDatesInLocal (dates) {
+    return dates.split(',').map(item => 
+      convertUTCToLocal(ajustUTCStringToDST(item.trim()))
+    )
+  }
+
+  function parseUTCtoTimezone (data) {
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone.replaceAll('_', ' ');
+    const time = getUTCDatesInLocal(data).join(' - ')
+
+    return time + ' ' + timeZone;
+  }
+
+  function alternateWeekOnDay (date) {
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const startDate = new Date(date)
+    const dayOfWeek = startDate.getDay()
+    const now = new Date(new Date().toDateString())
+    const DifferenceInTime = now.getTime() - startDate.getTime()
+    const DifferenceDays = DifferenceInTime / (1000 * 3600 * 24)
+    const passTwoWeeks = DifferenceDays / 7 % 2
+
+    if(passTwoWeeks <= 1 && passTwoWeeks != 0) {
+      now.setDate(now.getDate() + 7)
+    }
+
+    const result = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate() + (7 + dayOfWeek - now.getDay()) % 7)
+
+    if (result < now) {
+      result.setDate(result.getDate() + 7)
+    }
+    
+    return monthNames[result.getMonth()] + ' '  + result.getDate()
+  }
+
+function dayInMonth (d, day) {
+  const weekDays = []
+  const month = d.getMonth()
+  
+  d.setDate(1)
+
+  while (d.getDay() !== day) {
+    d.setDate(d.getDate() + 1)
+  }
+
+  while (d.getMonth() === month) {
+    weekDays.push(d.getDate())
+    d.setDate(d.getDate() + 7)
+  }
+
+  return weekDays
+}
+
+function twoDigits (number) {
+  return ("0" + number).slice(-2)
+}
+
+function getNextDateFromDayAndWeek (day, week, currentDate = new Date()) {
+  const currentMonth = (currentDate.getMonth() + 1)
+  const currentYear = currentDate.getFullYear()
+  const nextDate = new Date(currentDate.setMonth(currentMonth))
+  const nextMonth = nextDate.getMonth() + 1
+  const nextYear = nextDate.getFullYear()
+
+  const DaysThisMonth = dayInMonth(new Date(`${currentYear}/${currentMonth}/01`), day)
+  const DaysNextMonth = dayInMonth(new Date(`${nextYear}/${nextMonth}/01`), day)
+
+  return currentDate.getDate() > DaysThisMonth[week]
+    ? `${nextYear}/${twoDigits(nextMonth)}/${twoDigits(DaysNextMonth[week])}`
+    : `${currentYear}/${twoDigits(currentMonth)}/${twoDigits(DaysThisMonth[week])}`
+}
+
+function getNextDateObject (date) {
+  const present = new Date()
+  const nextDate = new Date(date)
+
+  var seconds = Math.floor((nextDate - present) / 1000)
+  var minutes = Math.floor(seconds / 60)
+  var hours = Math.floor(minutes / 60)
+  var days = Math.floor(hours / 24)
+
+  hours = hours - (days * 24)
+  minutes = minutes - (days * 24 * 60) - (hours * 60)
+  seconds = seconds - (days * 24 * 60 * 60) - (hours * 60 * 60) - (minutes * 60)
+
+  return {
+    days: days,
+    hours: hours,
+    minutes: minutes,
+    seconds: seconds
+  }
+}
+
+function printCountDown(element, dateObject) {
+   element.innerHTML = `<div class="countdown py-2">
+      <span class="h6 font-weight-bold">${dateObject.days}</span>d
+      <span class="h6 font-weight-bold">${twoDigits(dateObject.hours)}</span>h
+      <span class="h6 font-weight-bold">${twoDigits(dateObject.minutes)}</span>m
+      <span class="h6 font-weight-bold">${twoDigits(dateObject.seconds)}</span>s
+    </div>`
+}
+
+document.querySelectorAll('[data-utc-to-local]').forEach(element => {
+  element.textContent = parseUTCtoTimezone(element.getAttribute('data-utc-to-local'));
+})
+
+document.querySelectorAll('[data-utc]').forEach(element => {
+  const time = element.getAttribute('data-utc')
+  const [hour, minutes] = ajustUTCStringToDST(time)
+
+  element.innerHTML = hour + ':' + minutes
+})
+
+function isTimeAlreadyPassed(startTime, endTime) {
+  return startTime > endTime
+}
+
+function addDays (date, days) {
+  date.setDate(date.getDate() + days)
+  return date
+}
+
+const earlyDateElement = document.querySelector('#early-time')
+const lateDateElement = document.querySelector('#late-time')
+const [startEarlyTime, endEarlyTime] = getUTCDatesInLocal(earlyDateElement.getAttribute('data-utc-to-local'))
+const [startLateTime, endLateTime] = getUTCDatesInLocal(lateDateElement.getAttribute('data-utc-to-local'))
+
+
+const eventsElement = document.querySelectorAll('tbody.events tr').forEach(element => {
+  const nextDateElement = element.querySelector('[data-every-week]')
+  const countdownElement = element.querySelector('[data-countdown]')
+
+  if (!countdownElement || !nextDateElement) return
+
+  const week = nextDateElement.getAttribute('data-every-week')
+  const day = days.findIndex(item => item === nextDateElement.getAttribute('data-day'))
+  const isOpen = !!element.querySelector('[data-open]')
+  
+  function updateElements () {
+    let newDate = getNextDateFromDayAndWeek(Number(day), Number(week))
+    let dateObject
+    const earlyEventStartTime = new Date(newDate + ' ' + startEarlyTime)
+    const earlyEventEndTime = new Date(newDate + ' ' + endEarlyTime)
+    const lateEventStartTime = new Date(newDate + ' ' + startLateTime)
+    const lateEventEndTime = new Date(newDate + ' ' + endLateTime)
+    const now = new Date()
+
+    if (isTimeAlreadyPassed(now, earlyEventStartTime)) {
+      if (!isTimeAlreadyPassed(now, earlyEventEndTime)) {
+        countdownElement.innerHTML = "<span>We're live!</span>"  
+      } else {
+        if (isOpen) {
+          if (isTimeAlreadyPassed(now, lateEventStartTime)) {
+            if (!isTimeAlreadyPassed(now, lateEventEndTime) && isOpen) {
+              countdownElement.innerHTML = "<span>We're live!</span>"  
+            } else {
+              newDate = getNextDateFromDayAndWeek(Number(day), Number(week), addDays(new Date(), 1))
+              dateObject = getNextDateObject(newDate + ' ' + startEarlyTime)
+
+              printCountDown(countdownElement, dateObject)
+            }
+          } else {
+            newDate = getNextDateFromDayAndWeek(Number(day), Number(week))
+            dateObject = getNextDateObject(lateEventStartTime)
+
+            printCountDown(countdownElement, dateObject)
+          }
+        } else {
+          newDate = getNextDateFromDayAndWeek(Number(day), Number(week), addDays(new Date(), 1))
+          dateObject = getNextDateObject(newDate + ' ' + startEarlyTime)
+
+          printCountDown(countdownElement, dateObject)
+        }
+      }
+    } else {
+      dateObject = getNextDateObject(earlyEventStartTime)
+
+      printCountDown(countdownElement, dateObject)
+    }
+  
+    nextDateElement.textContent = newDate
+  }
+
+  updateElements()
+  setInterval(() => { updateElements() }, 1000)
+})
+</script>
