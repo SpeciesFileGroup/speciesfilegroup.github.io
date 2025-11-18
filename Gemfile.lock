@@ -175,11 +175,11 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  jekyll (~> 4.3)
+  jekyll (~> 4.4)
   jekyll-feed (~> 0.17)
   jekyll-paginate-v2 (~> 3.0)
   minima (~> 2.5)
-  psych (~> 5.0)
+  psych (~> 5.2)
   tzinfo (~> 2.0)
   tzinfo-data
   wdm (~> 0.1.1)

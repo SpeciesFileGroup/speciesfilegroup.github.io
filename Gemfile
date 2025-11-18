@@ -15,8 +15,8 @@ gem "minima", "~> 2.5"
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 # gem "github-pages", group: :jekyll_plugins
 
-gem 'jekyll', '~> 4.3'
-gem 'psych', '~> 5.0'
+gem 'jekyll', '~> 4.4'
+gem 'psych', '~> 5.2'
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
