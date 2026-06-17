@@ -4,7 +4,7 @@ layout: default
 # Sandboxes
 The Species File Group has numerous sandboxes for testing and training purposes.  Their role is described here.  Sandboxes are online (web accessible).  
 
-_Note that with a [few simple commands](https://github.com/SpeciesFileGroup/install_taxonworks/blob/master/development/docker/README.md) you can run TaxonWorks offline for development and testing purposes._
+_Note that with a [few simple commands](https://docs.taxonworks.org/develop/Install/) you can run TaxonWorks offline for development and testing purposes._
 
 # Guidelines 
 * **Data in sandboxes are never transferred to production ("real") instances of TaxonWorks**.  Sandboxes are not part of a workflow that prepares your data for production use, beyond practicing to see what it might look like in TaxonWorks.
